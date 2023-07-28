@@ -1,0 +1,24 @@
+<!-- Archivo base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Título de tu aplicación</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra de navegación, encabezado, o elementos comunes a todas las páginas -->
+        
+        <!-- Bloque de contenido específico de cada vista -->
+        {% block content %}
+        {% endblock %}
+        
+        <!-- Pie de página u otros elementos comunes a todas las páginas -->
+        <footer>
+            © {{ year }} TATOO DEVELOPER Todos los derechos reservados
+        </footer>
+    </div>
+</body>
+</html>
+

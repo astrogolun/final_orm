@@ -1,0 +1,21 @@
+<!-- Archivo eliminar.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Laboratorio</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h1>Eliminar Laboratorio</h1>
+    <p>¿Estás seguro que deseas eliminar el laboratorio: <strong>{{ laboratorio.nombre }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar">
+    </form>
+    <br>
+    <a href="{% url 'editar_lab' laboratorio.pk %}"> &lt;--Retornar</a>
+    {% endblock %}
+</body>
+</html>

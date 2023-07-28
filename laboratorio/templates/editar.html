@@ -1,0 +1,22 @@
+<!-- Archivo editar.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Laboratorio</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h1>Actualizar Laboratorio</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p>¿Información de los laboratorios?</p>
+    <p><a href="{% url 'mostrar_lab' %}">Ir a la información de los laboratorios</a></p>
+    {% endblock %}
+</body>
+</html>

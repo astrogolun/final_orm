@@ -1,0 +1,40 @@
+(InteractiveConsole)
+# Importar los modelos
+>>> from laboratorio.models import Laboratorio, DirectorGeneral, Producto
+
+# Obtener todos los objetos de Laboratorio, DirectorGeneral y Productos
+>>> labs = Laboratorio.objects.all()
+>>> print(labs)
+<QuerySet [<Laboratorio: Laboratorio1>, <Laboratorio: Laboratorio2>, <Laboratorio: Laboratorio3>]>
+>>> dirs=DirectorGeneral.objects.all()
+>>> print(dirs)
+<QuerySet [<DirectorGeneral: Director General 2>, <DirectorGeneral: Director General 1>, <DirectorGeneral: Director General 3>]>
+>>> prods = Producto.objects.all()
+>>> print(prods)
+<QuerySet [<Producto: Producto 1>, <Producto: Producto 2>, <Producto: Producto 3>]>
+
+# Obtener el laboratorio del Producto cuyo nombre es 'Producto 1'
+>>> prod1=Producto.objects.get(nombre='Producto 1')
+>>> print(prod1)
+Producto 1
+>>> labprod1=prod1.laboratorio
+>>> print(labprod1)
+Laboratorio1
+
+# Ordenar todos los productos por nombre y mostrar los valores de nombre y laboratorio
+>>> ordenprod=Producto.objects.all().order_by('nombre')
+>>> for x in ordenprod:
+...     print(f'Producto: {x.nombre}, Laboratorio: {x.laboratorio.nombre}')
+... 
+Producto: Producto 1, Laboratorio: Laboratorio1
+Producto: Producto 2, Laboratorio: Laboratorio2
+Producto: Producto 3, Laboratorio: Laboratorio3
+
+# Imprimir los laboratorios de todos los productos
+>>> for x in prods:
+...     print(f'Producto: {x.nombre}, Laboratorio: {x.laboratorio.nombre}')
+... 
+Producto: Producto 1, Laboratorio: Laboratorio1
+Producto: Producto 2, Laboratorio: Laboratorio2
+Producto: Producto 3, Laboratorio: Laboratorio3
+>>> 

@@ -1,0 +1,35 @@
+<!-- Archivo mostrar.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Laboratorios</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h1>Información de Laboratorios</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>País</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        {% for laboratorio in laboratorios %}
+        <tr>
+            <td>{{ laboratorio.nombre }}</td>
+            <td>{{ laboratorio.ciudad }}</td>
+            <td>{{ laboratorio.pais }}</td>
+            <td><a href="{% url 'editar_lab' laboratorio.pk %}">Editar</a></td>
+            <td><a href="{% url 'eliminar_lab' laboratorio.pk %}">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p>¿Información de los laboratorios?</p>
+    <p><a href="{% url 'insertar_lab' %}"> &lt;-- Ir a la página de inicio </a></p>
+    {% endblock %}
+</body>
+</html>
